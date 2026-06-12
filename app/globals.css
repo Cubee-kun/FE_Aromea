@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --primary-gradient: linear-gradient(135deg, #f5e6e8 0%, #e8d4db 50%, #dcc5d0 100%);
+  --text-primary: #3d2e33;
+  --text-secondary: #5a4a4f;
+  --text-tertiary: rgba(90, 74, 79, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--primary-gradient);
+  font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background: var(--primary-gradient);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Luxury Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(212, 120, 140, 0.3);
+  color: #2a1a22;
+}
+
+::-moz-selection {
+  background: rgba(212, 120, 140, 0.3);
+  color: #2a1a22;
+}
+
+/* Interactive Elements */
+button,
+a {
+  cursor: pointer;
+  position: relative;
+}
+
+section {
+  position: relative;
+}
+
+/* Smooth Scrolling */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Luxury Preloader */
+.loader-overlay {
+  background: rgba(245, 230, 232, 0.98);
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.loader-percentage {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #3d2e33;
+}
+
+.loader-bar {
+  height: 2px;
+  width: 200px;
+  background: rgba(90, 74, 79, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d47d8c, #c9698d);
+  border-radius: 1px;
+}
+
+/* Canvas Wrapper */
+.canvas-wrapper {
+  background: var(--primary-gradient);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.canvas-container {
+  position: absolute;
+  inset: 0;
+  background: var(--primary-gradient);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 10;
+}
+
+/* Overlay Text Animations */
+.overlay-text {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-reveal {
+  overflow: hidden;
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-luxury {
+  background: var(--primary-gradient);
+}
+
+.bg-overlay-light {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+/* Luxury Blur Effects */
+.blur-luxury {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Transitions */
+.transition-luxury {
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Motion Utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.45s ease-out forwards;
+}
+
+canvas {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .text-4xl {
+    font-size: 2.35rem;
+  }
+  .text-5xl {
+    font-size: 2.75rem;
+  }
+  .text-6xl {
+    font-size: 3.25rem;
+  }
+}
+
+/* Luxury text reveal animations */
+.char-reveal {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.char-reveal.active {
+  animation: charReveal 0.6s ease-out forwards;
+}
+
+@keyframes charReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium gradient overlays */
+.gradient-overlay-rose {
+  background: linear-gradient(180deg, rgba(245, 230, 232, 0) 0%, rgba(212, 120, 140, 0.08) 100%);
+}
+
+.gradient-overlay-dark {
+  background: linear-gradient(180deg, rgba(42, 26, 34, 0) 0%, rgba(42, 26, 34, 0.12) 100%);
+}
