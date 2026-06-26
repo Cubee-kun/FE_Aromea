@@ -22,17 +22,36 @@ const pad = (value)=>String(value).padStart(3, '0');
 const buildSources = ()=>Array.from({
         length: FRAME_COUNT
     }, (_, index)=>`/sequence/ezgif-frame-${pad(index + 1)}.jpg`);
-const scaleCover = (canvas, image)=>{
-    const { width: cw, height: ch } = canvas;
-    const { width: iw, height: ih } = image;
-    const scale = Math.max(cw / iw, ch / ih);
-    const dx = (cw - iw * scale) / 2;
-    const dy = (ch - ih * scale) / 2;
+// Ganti fungsi scaleCover lama dengan ini
+const scaleCover = (canvasW, canvasH, imageW, imageH)=>{
+    const canvasAspect = canvasW / canvasH;
+    const imageAspect = imageW / imageH;
+    let scale;
+    let sx = 0, sy = 0, sw = imageW, sh = imageH;
+    if (canvasAspect < imageAspect) {
+        // Canvas lebih portrait dari image (kasus mobile)
+        // → crop kiri-kanan image, ambil bagian tengah
+        scale = canvasH / imageH;
+        // Hitung berapa lebar image yang kita butuhkan
+        const neededW = canvasW / scale;
+        sx = (imageW - neededW) / 2; // crop dari tengah
+        sw = neededW;
+        sy = 0;
+        sh = imageH;
+    } else {
+        // Canvas lebih landscape — scale normal cover
+        scale = canvasW / imageW;
+        const neededH = canvasH / scale;
+        sy = (imageH - neededH) / 2;
+        sh = neededH;
+        sx = 0;
+        sw = imageW;
+    }
     return {
-        width: iw * scale,
-        height: ih * scale,
-        x: dx,
-        y: dy
+        sx,
+        sy,
+        sw,
+        sh
     };
 };
 const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA })=>{
@@ -56,7 +75,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             className: "inline-block h-2 w-2 rounded-full bg-pink-600/70"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 46,
+                            lineNumber: 73,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -64,13 +83,13 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             children: subtitle
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 47,
+                            lineNumber: 74,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 45,
+                    lineNumber: 72,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -81,7 +100,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 51,
+                    lineNumber: 78,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -92,7 +111,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                     children: description
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 57,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 isCTA && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -103,7 +122,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             children: "Discover Your Scent"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 65,
+                            lineNumber: 92,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -111,24 +130,24 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             children: "Learn More"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 68,
+                            lineNumber: 95,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 64,
+                    lineNumber: 91,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/app/components/SequenceScroll.tsx",
-            lineNumber: 44,
+            lineNumber: 71,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/app/components/SequenceScroll.tsx",
-        lineNumber: 40,
+        lineNumber: 67,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -169,12 +188,12 @@ const ScrollProgressIndicator = ({ progress })=>{
                     className: "h-full bg-pink-400/70 rounded-full"
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 89,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/components/SequenceScroll.tsx",
-                lineNumber: 88,
+                lineNumber: 115,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -188,7 +207,7 @@ const ScrollProgressIndicator = ({ progress })=>{
                         children: "Scroll"
                     }, void 0, false, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 92,
+                        lineNumber: 119,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -218,29 +237,29 @@ const ScrollProgressIndicator = ({ progress })=>{
                                 className: "text-gray-500/60"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/SequenceScroll.tsx",
-                                lineNumber: 98,
+                                lineNumber: 125,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 97,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 93,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/SequenceScroll.tsx",
-                lineNumber: 91,
+                lineNumber: 118,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/SequenceScroll.tsx",
-        lineNumber: 84,
+        lineNumber: 111,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -345,7 +364,7 @@ function SequenceScroll() {
     }, [
         scrollYProgress
     ]);
-    // ✅ drawFrame
+    // Ganti drawFrame
     const drawFrame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((frameIndex)=>{
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -365,9 +384,18 @@ function SequenceScroll() {
         }
         if (!image?.complete || image.naturalWidth === 0) return;
         try {
-            const { width, height, x, y } = scaleCover(canvas, image);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(image, x, y, width, height);
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const displayW = canvas.width / dpr;
+            const displayH = canvas.height / dpr;
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            // ✅ Gunakan drawImage 9-param: crop source dulu, baru render ke canvas
+            const { sx, sy, sw, sh } = scaleCover(displayW, displayH, image.naturalWidth, image.naturalHeight);
+            ctx.clearRect(0, 0, displayW, displayH);
+            // drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
+            // src: crop dari image | dst: full canvas
+            ctx.drawImage(image, sx, sy, sw, sh, 0, 0, displayW, displayH // destination: full canvas
+            );
         } catch (e) {
             console.error(`Canvas draw error at frame ${frameIndex}:`, e);
         }
@@ -418,11 +446,11 @@ function SequenceScroll() {
         if (!loaded) return;
         const canvas = canvasRef.current;
         if (!canvas) return;
+        // Ganti resizeCanvas di dalam useEffect
         const resizeCanvas = ()=>{
             const canvas = canvasRef.current;
             if (!canvas) return;
-            const dpr = window.devicePixelRatio || 1;
-            // ✅ Pakai window langsung, bukan parent element
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
             const w = window.innerWidth;
             const h = window.innerHeight;
             canvas.width = Math.floor(w * dpr);
@@ -432,7 +460,10 @@ function SequenceScroll() {
             const ctx = canvas.getContext('2d', {
                 alpha: false
             });
-            ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+            if (!ctx) return;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
             drawFrame(currentFrameRef.current);
         };
         // ✅ Delay sedikit agar DOM sudah settle sebelum resize
@@ -480,7 +511,7 @@ function SequenceScroll() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 299,
+                        lineNumber: 349,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -498,12 +529,12 @@ function SequenceScroll() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 308,
+                            lineNumber: 358,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 307,
+                        lineNumber: 357,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -511,18 +542,18 @@ function SequenceScroll() {
                         children: "Loading Aromea..."
                     }, void 0, false, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 315,
+                        lineNumber: 365,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/SequenceScroll.tsx",
-                lineNumber: 298,
+                lineNumber: 348,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/components/SequenceScroll.tsx",
-            lineNumber: 297,
+            lineNumber: 347,
             columnNumber: 7
         }, this);
     }
@@ -558,7 +589,7 @@ function SequenceScroll() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 346,
+                    lineNumber: 396,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -569,7 +600,7 @@ function SequenceScroll() {
                     description: "Express Yourself because Your Scent, Your Identity"
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 358,
+                    lineNumber: 408,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -580,7 +611,7 @@ function SequenceScroll() {
                     description: "Pink roses and white jasmine dance in suspension, creating the heart of Aroméa."
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 365,
+                    lineNumber: 415,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -591,7 +622,7 @@ function SequenceScroll() {
                     description: "Warm woody notes settle, anchoring your presence with timeless elegance."
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 372,
+                    lineNumber: 422,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -603,25 +634,25 @@ function SequenceScroll() {
                     isCTA: true
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 379,
+                    lineNumber: 429,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ScrollProgressIndicator, {
                     progress: scrollYProgress
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 388,
+                    lineNumber: 438,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/components/SequenceScroll.tsx",
-            lineNumber: 335,
+            lineNumber: 385,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/components/SequenceScroll.tsx",
-        lineNumber: 324,
+        lineNumber: 374,
         columnNumber: 5
     }, this);
 }

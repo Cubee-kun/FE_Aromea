@@ -11,13 +11,40 @@ const pad = (value: number) => String(value).padStart(3, '0');
 const buildSources = () =>
   Array.from({ length: FRAME_COUNT }, (_, index) => `/sequence/ezgif-frame-${pad(index + 1)}.jpg`);
 
-const scaleCover = (canvas: HTMLCanvasElement, image: HTMLImageElement) => {
-  const { width: cw, height: ch } = canvas;
-  const { width: iw, height: ih } = image;
-  const scale = Math.max(cw / iw, ch / ih);
-  const dx = (cw - iw * scale) / 2;
-  const dy = (ch - ih * scale) / 2;
-  return { width: iw * scale, height: ih * scale, x: dx, y: dy };
+// Ganti fungsi scaleCover lama dengan ini
+const scaleCover = (
+  canvasW: number,
+  canvasH: number,
+  imageW: number,
+  imageH: number
+) => {
+  const canvasAspect = canvasW / canvasH;
+  const imageAspect = imageW / imageH;
+
+  let scale: number;
+  let sx = 0, sy = 0, sw = imageW, sh = imageH;
+
+  if (canvasAspect < imageAspect) {
+    // Canvas lebih portrait dari image (kasus mobile)
+    // → crop kiri-kanan image, ambil bagian tengah
+    scale = canvasH / imageH;
+    // Hitung berapa lebar image yang kita butuhkan
+    const neededW = canvasW / scale;
+    sx = (imageW - neededW) / 2; // crop dari tengah
+    sw = neededW;
+    sy = 0;
+    sh = imageH;
+  } else {
+    // Canvas lebih landscape — scale normal cover
+    scale = canvasW / imageW;
+    const neededH = canvasH / scale;
+    sy = (imageH - neededH) / 2;
+    sh = neededH;
+    sx = 0;
+    sw = imageW;
+  }
+
+  return { sx, sy, sw, sh };
 };
 
 interface TextOverlayProps {
@@ -177,10 +204,11 @@ export default function SequenceScroll() {
     }
   }, [scrollYProgress]);
 
-  // ✅ drawFrame
+  // Ganti drawFrame
   const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
@@ -197,9 +225,27 @@ export default function SequenceScroll() {
     if (!image?.complete || image.naturalWidth === 0) return;
 
     try {
-      const { width, height, x, y } = scaleCover(canvas, image);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(image, x, y, width, height);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const displayW = canvas.width / dpr;
+      const displayH = canvas.height / dpr;
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
+      // ✅ Gunakan drawImage 9-param: crop source dulu, baru render ke canvas
+      const { sx, sy, sw, sh } = scaleCover(
+        displayW, displayH,
+        image.naturalWidth, image.naturalHeight
+      );
+
+      ctx.clearRect(0, 0, displayW, displayH);
+      // drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
+      // src: crop dari image | dst: full canvas
+      ctx.drawImage(
+        image,
+        sx, sy, sw, sh,   // source: bagian image yang diambil
+        0, 0, displayW, displayH  // destination: full canvas
+      );
     } catch (e) {
       console.error(`Canvas draw error at frame ${frameIndex}:`, e);
     }
@@ -252,12 +298,12 @@ export default function SequenceScroll() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // Ganti resizeCanvas di dalam useEffect
     const resizeCanvas = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      const dpr = window.devicePixelRatio || 1;
 
-      // ✅ Pakai window langsung, bukan parent element
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = window.innerWidth;
       const h = window.innerHeight;
 
@@ -267,7 +313,11 @@ export default function SequenceScroll() {
       canvas.style.height = `${h}px`;
 
       const ctx = canvas.getContext('2d', { alpha: false });
-      ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!ctx) return;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
       drawFrame(currentFrameRef.current);
     };
 

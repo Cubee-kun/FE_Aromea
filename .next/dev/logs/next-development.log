@@ -1126,3 +1126,78 @@
 {"timestamp":"00:47:14.298","source":"Browser","level":"LOG","message":"window.innerHeight: 782"}
 {"timestamp":"00:47:14.298","source":"Browser","level":"LOG","message":"visualViewport height: 767.2000122070312"}
 {"timestamp":"00:47:14.298","source":"Browser","level":"LOG","message":"canvas style: position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"}
+{"timestamp":"01:11:29.341","source":"Server","level":"LOG","message":"✓ Compiled in 224ms"}
+{"timestamp":"01:12:18.755","source":"Server","level":"LOG","message":"✓ Compiled in 74ms"}
+{"timestamp":"01:12:19.979","source":"Server","level":"LOG","message":"✓ Compiled in 74ms"}
+{"timestamp":"01:12:42.332","source":"Server","level":"LOG","message":"✓ Compiled in 114ms"}
+{"timestamp":"01:12:42.701","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:42.702","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:42.998","source":"Server","level":"ERROR","message":"⨯ ReferenceError: x is not defined"}
+{"timestamp":"01:12:43.058","source":"Server","level":"ERROR","message":"⨯ ReferenceError: x is not defined"}
+{"timestamp":"01:12:43.817","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:44.061","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:44.357","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: x is not defined"}
+{"timestamp":"01:12:45.258","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: x is not defined"}
+{"timestamp":"01:12:46.521","source":"Server","level":"LOG","message":"✓ Compiled in 70ms"}
+{"timestamp":"01:12:46.527","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:46.533","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:46.780","source":"Server","level":"ERROR","message":"⨯ ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:46.894","source":"Server","level":"ERROR","message":"⨯ ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:47.068","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:47.300","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:48.260","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:48.261","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:48.530","source":"Server","level":"LOG","message":"✓ Compiled in 72ms"}
+{"timestamp":"01:12:48.540","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:48.544","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:48.795","source":"Server","level":"ERROR","message":"⨯ ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:48.923","source":"Server","level":"ERROR","message":"⨯ ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:49.062","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:49.340","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:50.256","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:50.258","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: drawFrame is not defined"}
+{"timestamp":"01:12:52.218","source":"Server","level":"LOG","message":"✓ Compiled in 119ms"}
+{"timestamp":"01:12:52.224","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:52.242","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:12:52.928","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:53.195","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"=== DEBUG ==="}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"wrapper offsetHeight: 782"}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"wrapper offsetWidth: 1536"}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"container offsetHeight: 3912"}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"window.innerHeight: 782"}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"visualViewport height: 767.2000122070312"}
+{"timestamp":"01:12:55.257","source":"Browser","level":"LOG","message":"canvas style: position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"=== DEBUG ==="}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"wrapper offsetHeight: 516"}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"wrapper offsetWidth: 1272"}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"container offsetHeight: 2580"}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"window.innerHeight: 516"}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"visualViewport height: 500.79998779296875"}
+{"timestamp":"01:12:55.258","source":"Browser","level":"LOG","message":"canvas style: position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"}
+{"timestamp":"01:13:25.831","source":"Server","level":"LOG","message":"✓ Compiled in 66ms"}
+{"timestamp":"01:13:37.495","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mPlease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.\\u001b[39m\" \"\\u001b[2m(<anonymous>)\\u001b[22m\""}
+{"timestamp":"01:13:37.496","source":"Browser","level":"WARN","message":"\u001b[33mPlease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.\u001b[39m"}
+{"timestamp":"01:13:37.497","source":"Browser","level":"WARN","message":"Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly."}
+{"timestamp":"01:13:39.562","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:13:39.809","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mPlease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.\\u001b[39m\" \"\\u001b[2m(<anonymous>)\\u001b[22m\""}
+{"timestamp":"01:13:39.809","source":"Browser","level":"WARN","message":"\u001b[33mPlease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.\u001b[39m"}
+{"timestamp":"01:13:39.810","source":"Browser","level":"WARN","message":"Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly."}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"=== DEBUG ==="}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"wrapper offsetHeight: 782"}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"wrapper offsetWidth: 1536"}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"container offsetHeight: 3912"}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"window.innerHeight: 782"}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"visualViewport height: 767.2000122070312"}
+{"timestamp":"01:13:40.366","source":"Browser","level":"LOG","message":"canvas style: position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"}
+{"timestamp":"01:16:03.956","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:16:04.270","source":"Browser","level":"WARN","message":"Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly."}
+{"timestamp":"01:16:04.271","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mPlease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.\\u001b[39m\" \"\\u001b[2m(<anonymous>)\\u001b[22m\""}
+{"timestamp":"01:16:04.271","source":"Browser","level":"WARN","message":"\u001b[33mPlease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.\u001b[39m"}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"=== DEBUG ==="}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"wrapper offsetHeight: 782"}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"wrapper offsetWidth: 1536"}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"container offsetHeight: 3912"}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"window.innerHeight: 782"}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"visualViewport height: 767.2000122070312"}
+{"timestamp":"01:16:04.794","source":"Browser","level":"LOG","message":"canvas style: position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"}
