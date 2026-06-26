@@ -1,14 +1,14 @@
 'use client';
 
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const FRAME_COUNT = 192;
-const CONTAINER_HEIGHT = '200vh';
+const CONTAINER_HEIGHT = '500vh';
 
 const pad = (value: number) => String(value).padStart(3, '0');
 
-const buildSources = () => 
+const buildSources = () =>
   Array.from({ length: FRAME_COUNT }, (_, index) => `/sequence/ezgif-frame-${pad(index + 1)}.jpg`);
 
 const scaleCover = (canvas: HTMLCanvasElement, image: HTMLImageElement) => {
@@ -29,78 +29,83 @@ interface TextOverlayProps {
   isCTA?: boolean;
 }
 
-const TextOverlay = ({ 
-  opacity, 
-  alignment, 
-  subtitle, 
-  title, 
-  description, 
-  isCTA 
-}: TextOverlayProps) => {
+const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }: TextOverlayProps) => {
   const alignmentClass = {
     center: 'items-center text-center',
     left: 'items-start text-left',
-    right: 'items-end text-right'
+    right: 'items-end text-right',
   };
 
   return (
-    <motion.div 
-      style={{ opacity }} 
+    <motion.div
+      style={{ opacity }}
       className={`pointer-events-none absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-20 ${alignmentClass[alignment]}`}
     >
-      <div className={`max-w-2xl ${alignment === 'right' ? 'ml-auto' : alignment === 'left' ? 'ml-0' : ''}`}>
-        {/* Luxury Pill Badge */}
-        <motion.div 
-          className="inline-flex items-center gap-2 rounded-full border border-pink-300/30 bg-white/20 px-5 py-3 backdrop-blur-sm"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.4 }}
-        >
+      <div className={`max-w-2xl ${alignment === 'right' ? 'ml-auto' : ''}`}>
+        <div className="inline-flex items-center gap-2 rounded-full border border-pink-300/30 bg-white/20 px-5 py-3 backdrop-blur-sm">
           <span className="inline-block h-2 w-2 rounded-full bg-pink-600/70" />
           <span className="text-xs font-light uppercase tracking-[0.3em] text-pink-700/80">
             {subtitle}
           </span>
-        </motion.div>
-
-        {/* Main Heading */}
-        <motion.h1 
-          className="mt-6 font-light leading-tight tracking-tight text-gray-900 md:leading-tight"
+        </div>
+        <h1
+          className="mt-6 font-light leading-tight tracking-tight text-gray-900"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
         >
           {title}
-        </motion.h1>
-
-        {/* Description */}
-        <motion.p 
-          className="mt-4 font-light leading-relaxed text-gray-700/80 md:text-lg"
+        </h1>
+        <p
+          className="mt-4 font-light leading-relaxed text-gray-700/80"
           style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)' }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
         >
           {description}
-        </motion.p>
-
-        {/* CTA Button */}
+        </p>
         {isCTA && (
-          <motion.div 
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <button className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-rose-400 via-pink-300 to-rose-300 px-10 py-4 text-base font-medium uppercase tracking-[0.2em] text-gray-900 shadow-[0_20px_60px_rgba(244,114,182,0.3)] transition duration-300 hover:shadow-[0_30px_80px_rgba(244,114,182,0.4)] hover:-translate-y-1">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <button className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-rose-400 via-pink-300 to-rose-300 px-10 py-4 text-base font-medium uppercase tracking-[0.2em] text-gray-900 shadow-[0_20px_60px_rgba(244,114,182,0.3)] transition duration-300 hover:shadow-[0_30px_80px_rgba(244,114,182,0.4)] hover:-translate-y-1">
               Discover Your Scent
             </button>
             <button className="inline-flex items-center justify-center rounded-full border border-gray-400/40 bg-white/10 px-10 py-4 text-base font-medium uppercase tracking-[0.2em] text-gray-900 backdrop-blur-sm transition duration-300 hover:border-pink-300/40 hover:bg-white/20">
               Learn More
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
+    </motion.div>
+  );
+};
+
+const ScrollProgressIndicator = ({ progress }: { progress: any }) => {
+  const width = useTransform(progress, [0, 1], ['0%', '100%']);
+  const opacity = useTransform(progress, [0.95, 1], [1, 0]);
+  const hintOpacity = useTransform(progress, [0, 0.08], [1, 0]);
+
+  return (
+    <motion.div
+      style={{ opacity }}
+      className="absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex flex-col items-center gap-3"
+    >
+      <div className="h-px w-32 bg-gray-400/30 overflow-hidden rounded-full">
+        <motion.div style={{ width }} className="h-full bg-pink-400/70 rounded-full" />
+      </div>
+      <motion.div style={{ opacity: hintOpacity }} className="flex flex-col items-center gap-1">
+        <span className="text-xs uppercase tracking-[0.3em] text-gray-600/60 font-light">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M8 3L8 13M8 13L4 9M8 13L12 9"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-gray-500/60"
+            />
+          </svg>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 };
@@ -111,229 +116,203 @@ export default function SequenceScroll() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [preloadProgress, setPreloadProgress] = useState(0);
-  const [currentFrame, setCurrentFrame] = useState(0);
   const animationFrameRef = useRef<number | undefined>(undefined);
+  const currentFrameRef = useRef(0);
+
+  // ✅ Track viewport height secara akurat via visualViewport
+  const [viewportH, setViewportH] = useState('100vh');
+
+  useEffect(() => {
+    const setVh = () => {
+      const h = window.visualViewport?.height ?? window.innerHeight;
+      setViewportH(`${h}px`);
+    };
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.visualViewport?.addEventListener('resize', setVh);
+    return () => {
+      window.removeEventListener('resize', setVh);
+      window.visualViewport?.removeEventListener('resize', setVh);
+    };
+  }, []);
 
   const sources = useMemo(buildSources, []);
-  
-  const { scrollYProgress } = useScroll({ 
-    target: containerRef, 
-    offset: ['start start', 'end end'],
-    layoutEffect: false
-  });
-  
-  // Smooth spring animation for fluid frame interpolation
-  const smoothProgress = useSpring(scrollYProgress, { 
-    stiffness: 150, 
+
+  // ✅ Manual scroll progress — tidak pakai useScroll
+  const scrollYProgress = useMotionValue(0);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 150,
     damping: 40,
-    mass: 1
+    mass: 1,
   });
 
-  // Luxury text overlay animations with precise scroll markers
-  const welcomeOpacity = useTransform(scrollYProgress, [0, 0.06, 0.2, 0.28], [1, 1, 0.9, 0]);
-  const welcomeScale = useTransform(scrollYProgress, [0, 0.28], [1, 0.95]);
-  
-  const petalsOpacity = useTransform(scrollYProgress, [0.25, 0.32, 0.55, 0.62], [0, 1, 1, 0]);
-  const petalsX = useTransform(scrollYProgress, [0.32, 0.55], ['-100%', '0%']);
-  
-  const amberOpacity = useTransform(scrollYProgress, [0.57, 0.65, 0.8, 0.87], [0, 1, 1, 0]);
-  const amberX = useTransform(scrollYProgress, [0.65, 0.8], ['100%', '0%']);
-  
-  const ctaOpacity = useTransform(scrollYProgress, [0.82, 0.9, 1], [0, 1, 1]);
-  const ctaScale = useTransform(scrollYProgress, [0.82, 0.95], [0.95, 1]);
+  const welcomeOpacity = useTransform(scrollYProgress, [0, 0.04, 0.14, 0.20], [1, 1, 0.9, 0]);
+  const petalsOpacity  = useTransform(scrollYProgress, [0.18, 0.24, 0.48, 0.55], [0, 1, 1, 0]);
+  const amberOpacity   = useTransform(scrollYProgress, [0.53, 0.60, 0.78, 0.85], [0, 1, 1, 0]);
+  const ctaOpacity     = useTransform(scrollYProgress, [0.83, 0.90, 1.0], [0, 1, 1]);
 
-  // Preload all frames on mount
+  // ✅ Hitung progress manual, support Lenis dan native scroll
+  useEffect(() => {
+    const updateProgress = () => {
+      const container = containerRef.current;
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      const containerHeight = container.offsetHeight;
+      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      const scrolled = -rect.top;
+      const total = containerHeight - viewportHeight;
+      const progress = Math.min(1, Math.max(0, scrolled / total));
+      scrollYProgress.set(progress);
+    };
+
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.on('scroll', updateProgress);
+      updateProgress();
+      return () => lenis.off('scroll', updateProgress);
+    } else {
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+      return () => window.removeEventListener('scroll', updateProgress);
+    }
+  }, [scrollYProgress]);
+
+  // ✅ drawFrame
+  const drawFrame = useCallback((frameIndex: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { alpha: false });
+    if (!ctx) return;
+
+    let image = imagesRef.current[frameIndex];
+    if (!image?.complete || image.naturalWidth === 0) {
+      for (let i = frameIndex - 1; i >= 0; i--) {
+        const fallback = imagesRef.current[i];
+        if (fallback?.complete && fallback.naturalWidth > 0) {
+          image = fallback;
+          break;
+        }
+      }
+    }
+    if (!image?.complete || image.naturalWidth === 0) return;
+
+    try {
+      const { width, height, x, y } = scaleCover(canvas, image);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, x, y, width, height);
+    } catch (e) {
+      console.error(`Canvas draw error at frame ${frameIndex}:`, e);
+    }
+  }, []);
+
+  // Preload
   useEffect(() => {
     let loadedCount = 0;
-    const failedFrames: Array<{ src: string; error: string }> = [];
-    const successFrames: string[] = [];
-
-    console.log(`🎬 Starting to preload ${FRAME_COUNT} frames...`);
-
-    const imagePromises = sources.map((src, index) =>
+    const imagePromises = sources.map((src) =>
       new Promise<HTMLImageElement>((resolve) => {
         const image = new Image();
         image.src = src;
         image.crossOrigin = 'anonymous';
-        
         let resolved = false;
-        
-        const finishLoading = (success: boolean, error?: string) => {
+        const finish = () => {
           if (resolved) return;
           resolved = true;
-          
           loadedCount += 1;
-          if (success) {
-            successFrames.push(src);
-          } else {
-            failedFrames.push({ src, error: error || 'unknown' });
-          }
           setPreloadProgress(Math.round((loadedCount / FRAME_COUNT) * 100));
           resolve(image);
         };
-
-        image.onload = () => {
-          finishLoading(true);
-          if (loadedCount % 50 === 0 || loadedCount === FRAME_COUNT) {
-            console.log(`✅ Loaded ${loadedCount}/${FRAME_COUNT} frames`);
-          }
-        };
-        
-        image.onerror = (error) => {
-          finishLoading(false, 'error');
-          console.error(`❌ Failed to load frame ${index + 1}: ${src}`);
-        };
-
-        // Set timeout for slow connections (8 seconds)
-        setTimeout(() => {
-          if (!resolved) {
-            finishLoading(false, 'timeout');
-            console.warn(`⏱️ Timeout loading frame ${index + 1}: ${src}`);
-          }
-        }, 8000);
+        image.onload = finish;
+        image.onerror = finish;
+        setTimeout(finish, 8000);
       })
     );
-
     Promise.all(imagePromises).then((allImages) => {
       imagesRef.current = allImages;
       setLoaded(true);
-      console.log(`🎬 Preload complete: ${successFrames.length}/${FRAME_COUNT} frames loaded`);
-      if (failedFrames.length > 0) {
-        console.error(`❌ ${failedFrames.length} frames failed:`, failedFrames);
-      }
     });
   }, [sources]);
 
-  // Canvas rendering with high performance
   useEffect(() => {
-    if (!loaded) {
-      console.log('⏳ Waiting for images to load...');
-      return;
-    }
+  if (!loaded) return;
+  const canvas = canvasRef.current;
+  const wrapper = canvas?.parentElement;
+  const container = containerRef.current;
+  console.log('=== DEBUG ===');
+  console.log('wrapper offsetHeight:', wrapper?.offsetHeight);
+  console.log('wrapper offsetWidth:', wrapper?.offsetWidth);
+  console.log('container offsetHeight:', container?.offsetHeight);
+  console.log('window.innerHeight:', window.innerHeight);
+  console.log('visualViewport height:', window.visualViewport?.height);
+  console.log('canvas style:', canvas?.style.cssText);
+}, [loaded]);
 
+  // ✅ Canvas setup — pakai offsetWidth/Height dari parent wrapper
+  useEffect(() => {
+    if (!loaded) return;
     const canvas = canvasRef.current;
-    if (!canvas) {
-      console.error('❌ Canvas ref not found');
-      return;
-    }
-    
-    const ctx = canvas.getContext('2d', { alpha: false });
-    if (!ctx) {
-      console.error('❌ Canvas context not found');
-      return;
-    }
-
-    console.log('✅ Canvas setup complete', {
-      canvasWidth: canvas.width,
-      canvasHeight: canvas.height,
-      imageCount: imagesRef.current.length
-    });
-
-    const drawFrame = (frameIndex: number) => {
-      const image = imagesRef.current[frameIndex];
-      // Fallback ke frame sebelumnya jika gagal load
-      if (!image || !image.complete || image.naturalWidth === 0) {
-        if (frameIndex > 0) {
-          const fallbackImage = imagesRef.current[frameIndex - 1];
-          if (fallbackImage && fallbackImage.complete && fallbackImage.naturalWidth > 0) {
-            try {
-              const { width, height, x, y } = scaleCover(canvas, fallbackImage);
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
-              ctx.drawImage(fallbackImage, x, y, width, height);
-              return;
-            } catch (e) {
-              console.error('Fallback draw error:', e);
-            }
-          }
-        }
-        return;
-      }
-
-      try {
-        const { width, height, x, y } = scaleCover(canvas, image);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(image, x, y, width, height);
-      } catch (e) {
-        console.error(`Canvas draw error at frame ${frameIndex}:`, e);
-      }
-    };
+    if (!canvas) return;
 
     const resizeCanvas = () => {
-      const rect = canvas.getBoundingClientRect();
+      const canvas = canvasRef.current;
+      if (!canvas) return;
       const dpr = window.devicePixelRatio || 1;
-      
-      canvas.width = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
-      
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      
-      if (imagesRef.current.length) {
-        drawFrame(currentFrame);
-      }
-      
-      console.log('✅ Canvas resized:', { width: canvas.width, height: canvas.height, dpr });
+
+      // ✅ Pakai window langsung, bukan parent element
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+
+      const ctx = canvas.getContext('2d', { alpha: false });
+      ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+      drawFrame(currentFrameRef.current);
     };
 
-    // Initial setup
-    resizeCanvas();
+    // ✅ Delay sedikit agar DOM sudah settle sebelum resize
+    const timer = setTimeout(resizeCanvas, 50);
     window.addEventListener('resize', resizeCanvas);
 
-    // Subscribe to scroll progress changes
     const unsubscribe = smoothProgress.on('change', (latest: number) => {
-      const frameIndex = Math.min(
-        FRAME_COUNT - 1, 
-        Math.max(0, Math.floor(latest * FRAME_COUNT))
-      );
-      
-      if (frameIndex !== currentFrame) {
-        setCurrentFrame(frameIndex);
-        
-        // Use requestAnimationFrame for optimal rendering
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
-        }
-        
-        animationFrameRef.current = requestAnimationFrame(() => {
-          drawFrame(frameIndex);
-        });
+      const frameIndex = Math.min(FRAME_COUNT - 1, Math.max(0, Math.floor(latest * FRAME_COUNT)));
+      if (frameIndex !== currentFrameRef.current) {
+        currentFrameRef.current = frameIndex;
+        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = requestAnimationFrame(() => drawFrame(frameIndex));
       }
     });
 
-    console.log('✅ Scroll subscription started');
-
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('resize', resizeCanvas);
       unsubscribe();
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [smoothProgress, currentFrame, loaded]);
+  }, [loaded, smoothProgress, drawFrame]);
 
-  // Preloader UI
   if (!loaded && preloadProgress < 100) {
     return (
-      <div className="loader-overlay">
-        <div className="loader-content">
-          <motion.div 
-            className="loader-percentage"
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-pink-50 to-rose-100">
+        <div className="flex flex-col items-center gap-6">
+          <motion.p
+            className="text-4xl font-light tracking-tight text-pink-600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
           >
             {preloadProgress}%
-          </motion.div>
-          <div className="loader-bar">
-            <motion.div 
-              className="loader-bar-fill"
+          </motion.p>
+          <div className="h-px w-48 bg-pink-200 overflow-hidden">
+            <motion.div
+              className="h-full bg-pink-500"
               initial={{ width: '0%' }}
               animate={{ width: `${preloadProgress}%` }}
               transition={{ duration: 0.2 }}
             />
           </div>
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-600/70 font-light">
+          <p className="text-xs uppercase tracking-[0.3em] text-gray-500/70 font-light">
             Loading Aromea...
           </p>
         </div>
@@ -342,24 +321,40 @@ export default function SequenceScroll() {
   }
 
   return (
-    <div 
-      ref={containerRef} 
-      className="relative w-full" 
-      style={{ 
-        height: CONTAINER_HEIGHT, 
+    <div
+      ref={containerRef}
+      className="relative w-full"
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: CONTAINER_HEIGHT,
         background: 'linear-gradient(135deg, #f5e6e8 0%, #e8d4db 50%, #dcc5d0 100%)',
-        position: 'relative'
       }}
     >
-      {/* Sticky Canvas Container */}
-      <div className="canvas-wrapper">
-        <canvas 
-          ref={canvasRef} 
-          className="absolute inset-0 h-full w-full z-10"
-          style={{ objectFit: 'cover' }}
+      {/* ✅ Sticky wrapper dengan tinggi viewport yang akurat */}
+      <div
+        style={{
+          position: 'sticky',
+          top: 0,
+          left: 0,
+          width: '100vw',        // ✅ full lebar viewport
+          height: '100vh',       // ✅ full tinggi viewport
+          marginLeft: 'calc(-50vw + 50%)', // ✅ escape dari parent container jika ada padding
+          overflow: 'hidden',
+        }}
+      >
+        <canvas
+          ref={canvasRef}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            display: 'block',
+          }}
         />
-        
-        {/* Text Overlays */}
+
         <TextOverlay
           opacity={welcomeOpacity}
           alignment="center"
@@ -367,7 +362,6 @@ export default function SequenceScroll() {
           title="Welcome to Aroméa"
           description="Express Yourself because Your Scent, Your Identity"
         />
-
         <TextOverlay
           opacity={petalsOpacity}
           alignment="left"
@@ -375,7 +369,6 @@ export default function SequenceScroll() {
           title="A Symphony of Petals"
           description="Pink roses and white jasmine dance in suspension, creating the heart of Aroméa."
         />
-
         <TextOverlay
           opacity={amberOpacity}
           alignment="right"
@@ -383,7 +376,6 @@ export default function SequenceScroll() {
           title="Grounded in Amber & Cedar"
           description="Warm woody notes settle, anchoring your presence with timeless elegance."
         />
-
         <TextOverlay
           opacity={ctaOpacity}
           alignment="center"
@@ -392,6 +384,8 @@ export default function SequenceScroll() {
           description="Every spray is a moment of self-expression. Experience Aroméa."
           isCTA={true}
         />
+
+        <ScrollProgressIndicator progress={scrollYProgress} />
       </div>
     </div>
   );

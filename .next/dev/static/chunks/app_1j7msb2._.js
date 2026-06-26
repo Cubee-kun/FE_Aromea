@@ -13,12 +13,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/value/use-transform.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
-var _s = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
 const FRAME_COUNT = 192;
-const CONTAINER_HEIGHT = '200vh';
+// ✅ Tinggi container = ruang scroll untuk sequence
+// Semakin tinggi = semakin lambat/lama sequence saat di-scroll
+// 500vh artinya user harus scroll 5x tinggi layar untuk habiskan sequence
+const CONTAINER_HEIGHT = '500vh';
 const pad = (value)=>String(value).padStart(3, '0');
 const buildSources = ()=>Array.from({
         length: FRAME_COUNT
@@ -69,7 +72,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             className: "inline-block h-2 w-2 rounded-full bg-pink-600/70"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 59,
+                            lineNumber: 54,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -77,13 +80,13 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             children: subtitle
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 60,
+                            lineNumber: 55,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 53,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].h1, {
@@ -106,7 +109,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 66,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
@@ -129,7 +132,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                     children: description
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 77,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 isCTA && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -152,7 +155,7 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             children: "Discover Your Scent"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 95,
+                            lineNumber: 85,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -160,37 +163,158 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
                             children: "Learn More"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 98,
+                            lineNumber: 88,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 89,
+                    lineNumber: 79,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/app/components/SequenceScroll.tsx",
-            lineNumber: 51,
+            lineNumber: 47,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/app/components/SequenceScroll.tsx",
-        lineNumber: 47,
+        lineNumber: 43,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
 _c = TextOverlay;
-function SequenceScroll() {
+// ✅ Indikator scroll progress — opsional, bantu UX user tahu masih ada konten
+const ScrollProgressIndicator = ({ progress })=>{
     _s();
+    const width = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(progress, [
+        0,
+        1
+    ], [
+        '0%',
+        '100%'
+    ]);
+    const opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(progress, [
+        0.95,
+        1
+    ], [
+        1,
+        0
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+        style: {
+            opacity
+        },
+        className: "absolute bottom-8 left-1/2 z-30 -translate-x-1/2 flex flex-col items-center gap-3",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "h-px w-32 bg-gray-400/30 overflow-hidden rounded-full",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    style: {
+                        width
+                    },
+                    className: "h-full bg-pink-400/70 rounded-full"
+                }, void 0, false, {
+                    fileName: "[project]/app/components/SequenceScroll.tsx",
+                    lineNumber: 110,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/app/components/SequenceScroll.tsx",
+                lineNumber: 109,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                style: {
+                    opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(progress, [
+                        0,
+                        0.1
+                    ], [
+                        1,
+                        0
+                    ])
+                },
+                className: "flex flex-col items-center gap-1",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "text-xs uppercase tracking-[0.3em] text-gray-600/60 font-light",
+                        children: "Scroll"
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/SequenceScroll.tsx",
+                        lineNumber: 122,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        animate: {
+                            y: [
+                                0,
+                                6,
+                                0
+                            ]
+                        },
+                        transition: {
+                            repeat: Infinity,
+                            duration: 1.5,
+                            ease: 'easeInOut'
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 16 16",
+                            fill: "none",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M8 3L8 13M8 13L4 9M8 13L12 9",
+                                stroke: "currentColor",
+                                strokeWidth: "1.5",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                className: "text-gray-500/60"
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/SequenceScroll.tsx",
+                                lineNumber: 128,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/SequenceScroll.tsx",
+                            lineNumber: 127,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/SequenceScroll.tsx",
+                        lineNumber: 123,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/components/SequenceScroll.tsx",
+                lineNumber: 116,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/components/SequenceScroll.tsx",
+        lineNumber: 104,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+_s(ScrollProgressIndicator, "g4NfU1/5CcJ8IZOy63w/d/X0OPU=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"]
+    ];
+});
+_c1 = ScrollProgressIndicator;
+function SequenceScroll() {
+    _s1();
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const imagesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])([]);
     const [loaded, setLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [preloadProgress, setPreloadProgress] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [currentFrame, setCurrentFrame] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const animationFrameRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(undefined);
+    const currentFrameRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
     const sources = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])(buildSources, []);
     const { scrollYProgress } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"])({
         target: containerRef,
@@ -200,137 +324,111 @@ function SequenceScroll() {
         ],
         layoutEffect: false
     });
-    // Smooth spring animation for fluid frame interpolation
     const smoothProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$spring$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSpring"])(scrollYProgress, {
         stiffness: 150,
         damping: 40,
         mass: 1
     });
-    // Luxury text overlay animations with precise scroll markers
+    // ✅ Text overlays — disesuaikan dengan CONTAINER_HEIGHT 500vh
+    // Rumus: progress 0–1 dibagi sesuai jumlah text section
+    // Section 1: welcome   → scroll 0%–18%
+    // Section 2: petals    → scroll 20%–55%
+    // Section 3: amber     → scroll 57%–82%
+    // Section 4: CTA       → scroll 85%–100% (tetap sampai akhir)
     const welcomeOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
         0,
-        0.06,
-        0.2,
-        0.28
+        0.04,
+        0.14,
+        0.20
     ], [
         1,
         1,
         0.9,
         0
-    ]);
-    const welcomeScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0,
-        0.28
-    ], [
-        1,
-        0.95
     ]);
     const petalsOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0.25,
-        0.32,
-        0.55,
-        0.62
-    ], [
-        0,
-        1,
-        1,
-        0
-    ]);
-    const petalsX = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0.32,
+        0.18,
+        0.24,
+        0.48,
         0.55
     ], [
-        '-100%',
-        '0%'
+        0,
+        1,
+        1,
+        0
     ]);
     const amberOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0.57,
-        0.65,
-        0.8,
-        0.87
+        0.53,
+        0.60,
+        0.78,
+        0.85
     ], [
         0,
         1,
         1,
         0
     ]);
-    const amberX = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0.65,
-        0.8
-    ], [
-        '100%',
-        '0%'
-    ]);
     const ctaOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0.82,
-        0.9,
-        1
+        0.83,
+        0.90,
+        1.0
     ], [
         0,
         1,
         1
     ]);
-    const ctaScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollYProgress, [
-        0.82,
-        0.95
-    ], [
-        0.95,
-        1
-    ]);
-    // Preload all frames on mount
+    // drawFrame stabil via useCallback
+    const drawFrame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "SequenceScroll.useCallback[drawFrame]": (frameIndex)=>{
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d', {
+                alpha: false
+            });
+            if (!ctx) return;
+            let image = imagesRef.current[frameIndex];
+            if (!image?.complete || image.naturalWidth === 0) {
+                for(let i = frameIndex - 1; i >= 0; i--){
+                    const fallback = imagesRef.current[i];
+                    if (fallback?.complete && fallback.naturalWidth > 0) {
+                        image = fallback;
+                        break;
+                    }
+                }
+            }
+            if (!image?.complete || image.naturalWidth === 0) return;
+            try {
+                const { width, height, x, y } = scaleCover(canvas, image);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(image, x, y, width, height);
+            } catch (e) {
+                console.error(`Canvas draw error at frame ${frameIndex}:`, e);
+            }
+        }
+    }["SequenceScroll.useCallback[drawFrame]"], []);
+    // Preload semua frame
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "SequenceScroll.useEffect": ()=>{
             let loadedCount = 0;
-            const failedFrames = [];
-            const successFrames = [];
-            console.log(`🎬 Starting to preload ${FRAME_COUNT} frames...`);
             const imagePromises = sources.map({
-                "SequenceScroll.useEffect.imagePromises": (src, index)=>new Promise({
+                "SequenceScroll.useEffect.imagePromises": (src)=>new Promise({
                         "SequenceScroll.useEffect.imagePromises": (resolve)=>{
                             const image = new Image();
                             image.src = src;
                             image.crossOrigin = 'anonymous';
                             let resolved = false;
-                            const finishLoading = {
-                                "SequenceScroll.useEffect.imagePromises.finishLoading": (success, error)=>{
+                            const finish = {
+                                "SequenceScroll.useEffect.imagePromises.finish": ()=>{
                                     if (resolved) return;
                                     resolved = true;
                                     loadedCount += 1;
-                                    if (success) {
-                                        successFrames.push(src);
-                                    } else {
-                                        failedFrames.push({
-                                            src,
-                                            error: error || 'unknown'
-                                        });
-                                    }
                                     setPreloadProgress(Math.round(loadedCount / FRAME_COUNT * 100));
                                     resolve(image);
                                 }
-                            }["SequenceScroll.useEffect.imagePromises.finishLoading"];
-                            image.onload = ({
-                                "SequenceScroll.useEffect.imagePromises": ()=>{
-                                    finishLoading(true);
-                                    if (loadedCount % 50 === 0 || loadedCount === FRAME_COUNT) {
-                                        console.log(`✅ Loaded ${loadedCount}/${FRAME_COUNT} frames`);
-                                    }
-                                }
-                            })["SequenceScroll.useEffect.imagePromises"];
-                            image.onerror = ({
-                                "SequenceScroll.useEffect.imagePromises": (error)=>{
-                                    finishLoading(false, 'error');
-                                    console.error(`❌ Failed to load frame ${index + 1}: ${src}`);
-                                }
-                            })["SequenceScroll.useEffect.imagePromises"];
-                            // Set timeout for slow connections (8 seconds)
-                            setTimeout({
-                                "SequenceScroll.useEffect.imagePromises": ()=>{
-                                    if (!resolved) {
-                                        finishLoading(false, 'timeout');
-                                        console.warn(`⏱️ Timeout loading frame ${index + 1}: ${src}`);
-                                    }
-                                }
-                            }["SequenceScroll.useEffect.imagePromises"], 8000);
+                            }["SequenceScroll.useEffect.imagePromises.finish"];
+                            image.onload = finish;
+                            image.onerror = finish;
+                            setTimeout(finish, 8000);
                         }
                     }["SequenceScroll.useEffect.imagePromises"])
             }["SequenceScroll.useEffect.imagePromises"]);
@@ -338,69 +436,22 @@ function SequenceScroll() {
                 "SequenceScroll.useEffect": (allImages)=>{
                     imagesRef.current = allImages;
                     setLoaded(true);
-                    console.log(`🎬 Preload complete: ${successFrames.length}/${FRAME_COUNT} frames loaded`);
-                    if (failedFrames.length > 0) {
-                        console.error(`❌ ${failedFrames.length} frames failed:`, failedFrames);
-                    }
                 }
             }["SequenceScroll.useEffect"]);
         }
     }["SequenceScroll.useEffect"], [
         sources
     ]);
-    // Canvas rendering with high performance
+    // Setup canvas + subscribe scroll
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "SequenceScroll.useEffect": ()=>{
-            if (!loaded) {
-                console.log('⏳ Waiting for images to load...');
-                return;
-            }
+            if (!loaded) return;
             const canvas = canvasRef.current;
-            if (!canvas) {
-                console.error('❌ Canvas ref not found');
-                return;
-            }
+            if (!canvas) return;
             const ctx = canvas.getContext('2d', {
                 alpha: false
             });
-            if (!ctx) {
-                console.error('❌ Canvas context not found');
-                return;
-            }
-            console.log('✅ Canvas setup complete', {
-                canvasWidth: canvas.width,
-                canvasHeight: canvas.height,
-                imageCount: imagesRef.current.length
-            });
-            const drawFrame = {
-                "SequenceScroll.useEffect.drawFrame": (frameIndex)=>{
-                    const image = imagesRef.current[frameIndex];
-                    // Fallback ke frame sebelumnya jika gagal load
-                    if (!image || !image.complete || image.naturalWidth === 0) {
-                        if (frameIndex > 0) {
-                            const fallbackImage = imagesRef.current[frameIndex - 1];
-                            if (fallbackImage && fallbackImage.complete && fallbackImage.naturalWidth > 0) {
-                                try {
-                                    const { width, height, x, y } = scaleCover(canvas, fallbackImage);
-                                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                                    ctx.drawImage(fallbackImage, x, y, width, height);
-                                    return;
-                                } catch (e) {
-                                    console.error('Fallback draw error:', e);
-                                }
-                            }
-                        }
-                        return;
-                    }
-                    try {
-                        const { width, height, x, y } = scaleCover(canvas, image);
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        ctx.drawImage(image, x, y, width, height);
-                    } catch (e) {
-                        console.error(`Canvas draw error at frame ${frameIndex}:`, e);
-                    }
-                }
-            }["SequenceScroll.useEffect.drawFrame"];
+            if (!ctx) return;
             const resizeCanvas = {
                 "SequenceScroll.useEffect.resizeCanvas": ()=>{
                     const rect = canvas.getBoundingClientRect();
@@ -410,54 +461,36 @@ function SequenceScroll() {
                     canvas.style.width = `${rect.width}px`;
                     canvas.style.height = `${rect.height}px`;
                     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-                    if (imagesRef.current.length) {
-                        drawFrame(currentFrame);
-                    }
-                    console.log('✅ Canvas resized:', {
-                        width: canvas.width,
-                        height: canvas.height,
-                        dpr
-                    });
+                    drawFrame(currentFrameRef.current);
                 }
             }["SequenceScroll.useEffect.resizeCanvas"];
-            // Initial setup
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
-            // Subscribe to scroll progress changes
             const unsubscribe = smoothProgress.on('change', {
                 "SequenceScroll.useEffect.unsubscribe": (latest)=>{
                     const frameIndex = Math.min(FRAME_COUNT - 1, Math.max(0, Math.floor(latest * FRAME_COUNT)));
-                    if (frameIndex !== currentFrame) {
-                        setCurrentFrame(frameIndex);
-                        // Use requestAnimationFrame for optimal rendering
-                        if (animationFrameRef.current) {
-                            cancelAnimationFrame(animationFrameRef.current);
-                        }
+                    if (frameIndex !== currentFrameRef.current) {
+                        currentFrameRef.current = frameIndex;
+                        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
                         animationFrameRef.current = requestAnimationFrame({
-                            "SequenceScroll.useEffect.unsubscribe": ()=>{
-                                drawFrame(frameIndex);
-                            }
+                            "SequenceScroll.useEffect.unsubscribe": ()=>drawFrame(frameIndex)
                         }["SequenceScroll.useEffect.unsubscribe"]);
                     }
                 }
             }["SequenceScroll.useEffect.unsubscribe"]);
-            console.log('✅ Scroll subscription started');
             return ({
                 "SequenceScroll.useEffect": ()=>{
                     window.removeEventListener('resize', resizeCanvas);
                     unsubscribe();
-                    if (animationFrameRef.current) {
-                        cancelAnimationFrame(animationFrameRef.current);
-                    }
+                    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
                 }
             })["SequenceScroll.useEffect"];
         }
     }["SequenceScroll.useEffect"], [
+        loaded,
         smoothProgress,
-        currentFrame,
-        loaded
+        drawFrame
     ]);
-    // Preloader UI
     if (!loaded && preloadProgress < 100) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "loader-overlay",
@@ -481,7 +514,7 @@ function SequenceScroll() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 320,
+                        lineNumber: 272,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -499,12 +532,12 @@ function SequenceScroll() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/app/components/SequenceScroll.tsx",
-                            lineNumber: 329,
+                            lineNumber: 281,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 328,
+                        lineNumber: 280,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -512,41 +545,44 @@ function SequenceScroll() {
                         children: "Loading Aromea..."
                     }, void 0, false, {
                         fileName: "[project]/app/components/SequenceScroll.tsx",
-                        lineNumber: 336,
+                        lineNumber: 288,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/SequenceScroll.tsx",
-                lineNumber: 319,
+                lineNumber: 271,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/components/SequenceScroll.tsx",
-            lineNumber: 318,
+            lineNumber: 270,
             columnNumber: 7
         }, this);
     }
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    return(// ✅ Container tinggi 500vh — user HARUS scroll sampai habis sebelum konten berikutnya
+    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         ref: containerRef,
         className: "relative w-full",
         style: {
             height: CONTAINER_HEIGHT,
-            background: 'linear-gradient(135deg, #f5e6e8 0%, #e8d4db 50%, #dcc5d0 100%)',
-            position: 'relative'
+            background: 'linear-gradient(135deg, #f5e6e8 0%, #e8d4db 50%, #dcc5d0 100%)'
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "canvas-wrapper",
+            style: {
+                position: 'sticky',
+                top: 0,
+                height: '100vh',
+                width: '100%',
+                overflow: 'hidden'
+            },
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
                     ref: canvasRef,
-                    className: "absolute inset-0 h-full w-full z-10",
-                    style: {
-                        objectFit: 'cover'
-                    }
+                    className: "absolute inset-0 h-full w-full z-10"
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 356,
+                    lineNumber: 314,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -557,7 +593,7 @@ function SequenceScroll() {
                     description: "Express Yourself because Your Scent, Your Identity"
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 363,
+                    lineNumber: 316,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -568,7 +604,7 @@ function SequenceScroll() {
                     description: "Pink roses and white jasmine dance in suspension, creating the heart of Aroméa."
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 371,
+                    lineNumber: 324,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -579,7 +615,7 @@ function SequenceScroll() {
                     description: "Warm woody notes settle, anchoring your presence with timeless elegance."
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 379,
+                    lineNumber: 332,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TextOverlay, {
@@ -591,39 +627,43 @@ function SequenceScroll() {
                     isCTA: true
                 }, void 0, false, {
                     fileName: "[project]/app/components/SequenceScroll.tsx",
-                    lineNumber: 387,
+                    lineNumber: 340,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ScrollProgressIndicator, {
+                    progress: scrollYProgress
+                }, void 0, false, {
+                    fileName: "[project]/app/components/SequenceScroll.tsx",
+                    lineNumber: 350,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/components/SequenceScroll.tsx",
-            lineNumber: 355,
+            lineNumber: 305,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/components/SequenceScroll.tsx",
-        lineNumber: 345,
+        lineNumber: 296,
         columnNumber: 5
-    }, this);
+    }, this));
 }
-_s(SequenceScroll, "VWbOUTeASlX3xcOGh5AbzUX52Dw=", false, function() {
+_s1(SequenceScroll, "S0PghpSwb32L9WnyLNEbw3nd0go=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$spring$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSpring"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"]
     ];
 });
-_c1 = SequenceScroll;
-var _c, _c1;
+_c2 = SequenceScroll;
+var _c, _c1, _c2;
 __turbopack_context__.k.register(_c, "TextOverlay");
-__turbopack_context__.k.register(_c1, "SequenceScroll");
+__turbopack_context__.k.register(_c1, "ScrollProgressIndicator");
+__turbopack_context__.k.register(_c2, "SequenceScroll");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -1379,7 +1419,6 @@ function HomePage() {
     _s();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "HomePage.useEffect": ()=>{
-            // Initialize Lenis for silky smooth scrolling
             const lenis = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lenis$2f$dist$2f$lenis$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]({
                 duration: 1.2,
                 easing: {
@@ -1404,16 +1443,16 @@ function HomePage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Navbar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 33,
+                lineNumber: 31,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$SequenceScroll$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 36,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative -mt-[100vh] z-10 bg-gradient-to-b from-pink-50/80 to-white pt-[120vh] pb-24",
+                className: "bg-gradient-to-b from-pink-50/80 to-white py-24",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "mx-auto flex max-w-7xl flex-col gap-20 px-6 md:px-10",
                     children: [
@@ -1428,7 +1467,7 @@ function HomePage() {
                                             children: "About Aromea"
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.tsx",
-                                            lineNumber: 44,
+                                            lineNumber: 41,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1439,7 +1478,7 @@ function HomePage() {
                                             children: "A luxury fragrance brand narrative built around scent, motion and refined artistry."
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.tsx",
-                                            lineNumber: 47,
+                                            lineNumber: 44,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1447,13 +1486,13 @@ function HomePage() {
                                             children: "Aromea is designed to feel like cinema. Every scroll reveals a new chapter of fragrance craftsmanship, essence extraction, and sensory moments designed for the modern perfume connoisseur."
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.tsx",
-                                            lineNumber: 51,
+                                            lineNumber: 50,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 43,
+                                    lineNumber: 40,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1473,7 +1512,7 @@ function HomePage() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 42,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1491,36 +1530,29 @@ function HomePage() {
                                     title: 'Amber & Cedar',
                                     description: 'Aged amber resin and cedarwood create a warm, grounding base that lingers on skin for hours.'
                                 }
-                            ].map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ].map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "group overflow-hidden rounded-[2rem] border border-pink-200/20 bg-gradient-to-br from-white/60 to-pink-50/40 p-8 transition-all duration-300 hover:border-pink-300/40 hover:bg-white/70 hover:shadow-lg hover:-translate-y-1",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "h-64 overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-pink-100/50 to-rose-100/50",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "h-full w-full bg-gradient-to-br from-rose-200/30 to-pink-200/20 flex items-center justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "text-center",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-sm font-light text-pink-600/50 uppercase tracking-[0.2em]",
-                                                        children: item.title
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/page.tsx",
-                                                        lineNumber: 84,
-                                                        columnNumber: 23
-                                                    }, this)
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm font-light text-pink-600/50 uppercase tracking-[0.2em]",
+                                                    children: item.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 83,
+                                                    lineNumber: 85,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 82,
+                                                lineNumber: 84,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.tsx",
-                                            lineNumber: 81,
+                                            lineNumber: 83,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1542,7 +1574,7 @@ function HomePage() {
                                     ]
                                 }, item.title, true, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 76,
+                                    lineNumber: 79,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
@@ -1553,12 +1585,12 @@ function HomePage() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 41,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 39,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1576,8 +1608,8 @@ function HomePage() {
                                         children: "Numbers that matter"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 105,
-                                        columnNumber: 15
+                                        lineNumber: 103,
+                                        columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                         className: "text-4xl font-light tracking-tight text-gray-900 md:text-5xl",
@@ -1587,8 +1619,8 @@ function HomePage() {
                                         children: "Real fragrances, real passion."
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 108,
-                                        columnNumber: 15
+                                        lineNumber: 106,
+                                        columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "max-w-2xl text-base leading-8 text-gray-700/85",
@@ -1596,134 +1628,63 @@ function HomePage() {
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
                                         lineNumber: 112,
-                                        columnNumber: 15
+                                        columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 104,
-                                columnNumber: 13
+                                lineNumber: 102,
+                                columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid gap-6 sm:grid-cols-3",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "rounded-[2rem] border border-pink-200/20 bg-white/60 p-8 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-4",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-5xl font-light tracking-tight text-pink-600",
-                                                    children: "24+"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 119,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm uppercase tracking-[0.35em] text-pink-700/70 font-light",
-                                                    children: "Perfume Collections"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 120,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/page.tsx",
-                                            lineNumber: 118,
-                                            columnNumber: 17
-                                        }, this)
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CountUpOnView, {
+                                        value: 24,
+                                        suffix: "+",
+                                        label: "Perfume Collections"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 117,
-                                        columnNumber: 15
+                                        lineNumber: 120,
+                                        columnNumber: 9
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "rounded-[2rem] border border-pink-200/20 bg-white/60 p-8 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-4",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-5xl font-light tracking-tight text-pink-600",
-                                                    children: "18"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 127,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm uppercase tracking-[0.35em] text-pink-700/70 font-light",
-                                                    children: "Rare Ingredients"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 128,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/page.tsx",
-                                            lineNumber: 126,
-                                            columnNumber: 17
-                                        }, this)
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CountUpOnView, {
+                                        value: 18,
+                                        label: "Rare Ingredients"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 125,
-                                        columnNumber: 15
+                                        lineNumber: 121,
+                                        columnNumber: 9
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "rounded-[2rem] border border-pink-200/20 bg-white/60 p-8 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-4",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-5xl font-light tracking-tight text-pink-600",
-                                                    children: "12"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 135,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm uppercase tracking-[0.35em] text-pink-700/70 font-light",
-                                                    children: "Awards & Recognition"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.tsx",
-                                                    lineNumber: 136,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/page.tsx",
-                                            lineNumber: 134,
-                                            columnNumber: 17
-                                        }, this)
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CountUpOnView, {
+                                        value: 12,
+                                        label: "Awards & Recognition"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 133,
-                                        columnNumber: 15
+                                        lineNumber: 122,
+                                        columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 116,
-                                columnNumber: 13
+                                lineNumber: 119,
+                                columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 103,
-                        columnNumber: 11
+                        lineNumber: 101,
+                        columnNumber: 5
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 102,
-                    columnNumber: 9
+                    lineNumber: 100,
+                    columnNumber: 3
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 101,
-                columnNumber: 7
+                lineNumber: 99,
+                columnNumber: 1
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 className: "bg-gradient-to-b from-pink-50 to-white py-24",
@@ -1738,7 +1699,7 @@ function HomePage() {
                                     children: "Praise from the collection"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 150,
+                                    lineNumber: 132,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1749,29 +1710,29 @@ function HomePage() {
                                     children: "Testimonials that capture elegance."
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 153,
+                                    lineNumber: 135,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 149,
+                            lineNumber: 131,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TestimonialsSlider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 158,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 148,
+                    lineNumber: 130,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 147,
+                lineNumber: 129,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1781,14 +1742,14 @@ function HomePage() {
                         className: "pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(244,114,182,0.08),_transparent_25%)]"
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 164,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-pink-100/30 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 165,
+                        lineNumber: 149,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1799,7 +1760,7 @@ function HomePage() {
                                 children: "Aromea Collective"
                             }, void 0, false, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 168,
+                                lineNumber: 151,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1810,7 +1771,7 @@ function HomePage() {
                                 children: "Join us for a fragrance journey that moves with every scroll."
                             }, void 0, false, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 171,
+                                lineNumber: 154,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1818,18 +1779,18 @@ function HomePage() {
                                 children: "From exclusive releases to limited-edition blends, Aromea is where luxury perfumery intersects with a modern interactive brand experience."
                             }, void 0, false, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 175,
+                                lineNumber: 160,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        className: "group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-rose-400 via-pink-300 to-rose-300 px-10 py-4 text-base font-light uppercase tracking-[0.2em] text-gray-900 shadow-[0_20px_60px_rgba(244,114,182,0.25)] transition duration-300 hover:shadow-[0_30px_80px_rgba(244,114,182,0.35)] hover:-translate-y-1",
+                                        className: "inline-flex items-center justify-center rounded-full bg-gradient-to-r from-rose-400 via-pink-300 to-rose-300 px-10 py-4 text-base font-light uppercase tracking-[0.2em] text-gray-900 shadow-[0_20px_60px_rgba(244,114,182,0.25)] transition duration-300 hover:shadow-[0_30px_80px_rgba(244,114,182,0.35)] hover:-translate-y-1",
                                         children: "Discover Your Scent"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 165,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1837,25 +1798,25 @@ function HomePage() {
                                         children: "Schedule Consultation"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 183,
+                                        lineNumber: 168,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 179,
+                                lineNumber: 164,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 167,
+                        lineNumber: 150,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 163,
+                lineNumber: 147,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -1870,7 +1831,7 @@ function HomePage() {
                                     children: "Aromea"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 179,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1878,13 +1839,13 @@ function HomePage() {
                                     children: "A luxury fragrance brand crafted through motion, artistry, and sensory storytelling for the modern connoisseur."
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 195,
+                                    lineNumber: 180,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 193,
+                            lineNumber: 178,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1896,7 +1857,7 @@ function HomePage() {
                                     children: "Contact"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 186,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1905,7 +1866,7 @@ function HomePage() {
                                     children: "Instagram"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 201,
+                                    lineNumber: 187,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1914,7 +1875,7 @@ function HomePage() {
                                     children: "Press"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 202,
+                                    lineNumber: 188,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1923,30 +1884,30 @@ function HomePage() {
                                     children: "Privacy"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
-                                    lineNumber: 203,
+                                    lineNumber: 189,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 199,
+                            lineNumber: 185,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 192,
+                    lineNumber: 177,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 191,
+                lineNumber: 176,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 31,
+        lineNumber: 30,
         columnNumber: 5
     }, this);
 }
