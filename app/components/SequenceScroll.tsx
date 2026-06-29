@@ -69,30 +69,57 @@ const TextOverlay = ({ opacity, alignment, subtitle, title, description, isCTA }
       className={`pointer-events-none absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-20 ${alignmentClass[alignment]}`}
     >
       <div className={`max-w-2xl ${alignment === 'right' ? 'ml-auto' : ''}`}>
+
+        {/* Pill badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-pink-300/30 bg-white/20 px-5 py-3 backdrop-blur-sm">
           <span className="inline-block h-2 w-2 rounded-full bg-pink-600/70" />
-          <span className="text-xs font-light uppercase tracking-[0.3em] text-pink-700/80">
+          <span
+            style={{ fontFamily: 'Agrandir, sans-serif', fontWeight: 400 }}
+            className="text-xs uppercase tracking-[0.3em] text-pink-700/80"
+          >
             {subtitle}
           </span>
         </div>
+
+        {/* Heading — Agrandir Regular */}
         <h1
-          className="mt-6 font-light leading-tight tracking-tight text-gray-900"
-          style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+          style={{
+            fontFamily: 'Agrandir, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+          }}
+          className="mt-6 text-gray-900"
         >
           {title}
         </h1>
+
+        {/* Description — Agrandir Light */}
         <p
-          className="mt-4 font-light leading-relaxed text-gray-700/80"
-          style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)' }}
+          style={{
+            fontFamily: 'Agrandir, sans-serif',
+            fontWeight: 300,
+            fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+            lineHeight: 1.7,
+          }}
+          className="mt-4 text-gray-700/80"
         >
           {description}
         </p>
+
         {isCTA && (
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <button className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-rose-400 via-pink-300 to-rose-300 px-10 py-4 text-base font-medium uppercase tracking-[0.2em] text-gray-900 shadow-[0_20px_60px_rgba(244,114,182,0.3)] transition duration-300 hover:shadow-[0_30px_80px_rgba(244,114,182,0.4)] hover:-translate-y-1">
+            <button
+              style={{ fontFamily: 'Agrandir, sans-serif', fontWeight: 400 }}
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-rose-400 via-pink-300 to-rose-300 px-10 py-4 text-base uppercase tracking-[0.2em] text-gray-900 shadow-[0_20px_60px_rgba(244,114,182,0.3)] transition duration-300 hover:shadow-[0_30px_80px_rgba(244,114,182,0.4)] hover:-translate-y-1"
+            >
               Discover Your Scent
             </button>
-            <button className="inline-flex items-center justify-center rounded-full border border-gray-400/40 bg-white/10 px-10 py-4 text-base font-medium uppercase tracking-[0.2em] text-gray-900 backdrop-blur-sm transition duration-300 hover:border-pink-300/40 hover:bg-white/20">
+            <button
+              style={{ fontFamily: 'Agrandir, sans-serif', fontWeight: 300 }}
+              className="inline-flex items-center justify-center rounded-full border border-gray-400/40 bg-white/10 px-10 py-4 text-base uppercase tracking-[0.2em] text-gray-900 backdrop-blur-sm transition duration-300 hover:border-pink-300/40 hover:bg-white/20"
+            >
               Learn More
             </button>
           </div>
